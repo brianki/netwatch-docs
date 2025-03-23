@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy package.json and package-lock.json first for better caching
 COPY package*.json ./  
 
+
+COPY fumadocs.config.ts ./ 
+
 # Install dependencies
 RUN npm install  
 
