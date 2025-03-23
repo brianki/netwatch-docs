@@ -1,7 +1,7 @@
 import Link from 'next/link';
-
+import "@/public/custom.css";
 export const metadata = {
-  title: 'My App',
+  title: 'Netwatch.ai',
 };
 
 export default function HomePage() {
@@ -22,7 +22,7 @@ export default function HomePage() {
           marginBottom: '1rem',
         }}
       >
-        Hello World
+        Netwach docs
       </h1>
       <p>
         You can open{' '}
