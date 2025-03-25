@@ -1,4 +1,50 @@
-/* Change Sidebar Background Color */
-.sidebar {
-    background-color: #1E3A8A !important; /* Blue */
+#nd-sidebar {
+    background-color: #03212c !important; /* Dark Blue */
+    color: #FFFFFF !important; /* White Text */
+}
+
+#nd-sidebar a {
+    color: #FFFFFF !important; /* Ensure links are also white */
+}
+
+#nd-sidebar a:hover {
+    color: #ADD8E6 !important; /* Optional: Light blue hover effect */
+}
+svg[data-next-mark-loading="false"] {
+    display: none !important;
+}
+svg {
+    fill: rgb(226, 241, 243); /* Change to any color */
+  }
+  button[data-search-full] {
+    background-color: #FFFFFF !important; /* White background */
+    color: #333333 !important; /* Dark text for contrast */
+    border: 1px solid #B0C4DE !important; /* Light border (Zabbix style) */
+}
+
+button[data-search-full]:hover {
+    background-color: #E6F0FA !important; /* Light blue hover effect */
+    color: #000000 !important; /* Dark text for readability */
+}
+
+button[data-search-full] svg {
+    stroke: #333333 !important; /* Dark icon */
+}
+
+button[data-search-full] kbd {
+    background-color: #FFFFFF !important; /* White keys */
+    border: 1px solid #B0C4DE !important; /* Light border */
+    color: #333333 !important; /* Dark text */
+}
+button[data-search-full] kbd {
+    display: none !important;
+}
+svg[data-next-mark-loading="false"] {
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+}
+svg circle {
+    fill: #cac7c5 !important; /* Dark Blue */
 }

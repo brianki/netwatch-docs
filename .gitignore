@@ -1,28 +1,41 @@
-# deps
+# Dependencies
 /node_modules
 
-# generated content
+# Generated Content
 .contentlayer
 .content-collections
 .source
 
-# test & build
+# Build & Test Output
 /coverage
 /.next/
 /out/
 /build
 *.tsbuildinfo
 
-# misc
+# Logs & Debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.eslintcache
+.turbo
+
+# Miscellaneous
 .DS_Store
 *.pem
 /.pnp
 .pnp.js
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# others
+# Environment Variables & Secrets
+.env
 .env*.local
+
+# Deployment & Hosting
 .vercel
 next-env.d.ts
+
+# IDE & System Files
+.vscode/
+.idea/
+.cache/

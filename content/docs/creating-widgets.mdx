@@ -1,6 +1,6 @@
 ---
 title: Creating Widgets in Netwatch
-description: Step-by-step guide on how to create and configure widgets in Netwatch dashboards.
+description: A guide on how to create and configure widgets in Netwatch dashboards.
 ---
 
 ## Overview
@@ -8,21 +8,38 @@ Widgets in Netwatch allow users to visualize monitoring data effectively within 
 
 ## Steps to Create a Widget
 
-1. **Access an Existing Dashboard:**
-   - Navigate to **Monitoring** > **Dashboards**.
-   - Select an existing dashboard or create a new one.
+### 1. **Access an Existing Dashboard**
+- Navigate to **Monitoring** > **Dashboards**.
+- Select an existing dashboard or create a new one.
 
-2. **Add a New Widget:**
-   - Click on **Add Widget**.
-   - Choose the type of widget to add (e.g., Graph, Problems, Map, Clock).
+![Step 1: Access an Existing Dashboard](/images/access-dashboard.png)
 
-3. **Configure Widget Settings:**
-   - **Title:** Provide a descriptive name for the widget.
-   - **Data Source:** Select the relevant data (e.g., a specific host or item).
-   - **Visualization Options:** Customize colors, thresholds, and display modes.
+### 2. **Add a New Widget**
+- Click on **Add Widget**.
+- Choose the type of widget to add (e.g., Graph, Problems, Map, Clock).
 
-4. **Save the Widget:**
-   - Click **Save** to apply the changes.
+![Step 2: Add a New Widget](/images/add-widget.png)
+
+### 3. **Configure Widget Settings**
+- **Title:** Provide a descriptive name for the widget.
+- **Data Source:** Select the relevant data (e.g., a specific host or item).
+- **Visualization Options:** Customize colors, thresholds, and display modes.
+
+![Step 3: Configure Widget Settings](/images/configure-widget.png)
+
+### **Example: Adding a CPU Usage Graph Widget**
+1. Click on **Add Widget**.
+2. Select **Graph** from the widget list.
+3. Choose **CPU Utilization** as the metric.
+4. Adjust settings such as the refresh interval and display style.
+5. Click **Apply** to Apply the widget.
+
+![Example: Adding a CPU Usage Graph Widget](/images/cpu-graph-widget.png)
+
+### 4. **Save the Widget**
+- Click **Apply** to apply the changes.
+
+![Step 4: Save the Dashboard](/images/save-dash.png)
 
 ## Example Widgets
 - **Graph Widget:** Displays time-series data for a selected metric.
@@ -33,8 +50,9 @@ Widgets in Netwatch allow users to visualize monitoring data effectively within 
 ## Best Practices
 - Use widgets that provide meaningful insights into system performance.
 - Avoid cluttering dashboards with too many widgets.
-- Customize widget thresholds to highlight critical issues.
+
 
 ---
 
 Widgets enhance Netwatch dashboards by providing clear, interactive monitoring insights.
+
