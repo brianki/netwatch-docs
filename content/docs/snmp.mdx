@@ -2,6 +2,8 @@
 title: Configuring SNMP monitoring (SonicWall firewalls) in Netwatch.
 ---
 
+import ZoomableImage from '@/components/ZoomableImage';
+
 ## Overview
 To monitor SonicWall firewalls with Netwatch, you'll need to configure Netwatch to use SNMP and then add the devices as hosts, linking them to appropriate templates for monitoring specific metrics.
 
@@ -20,7 +22,7 @@ To monitor SonicWall firewalls with Netwatch, you'll need to configure Netwatch 
 7. **Add** the template to the host.
 8. **Click** **Apply/Update** at the bottom of the page to save the host.
 
-![Configure SNMP Monitoring](/images/snmp-monitoring.png)
+<ZoomableImage src="/images/snmp-monitoring.png" alt="Configure SNMP Monitoring" />
 
 ## 3. Monitor Metrics
 - Netwatch templates contain predefined items and triggers for common firewall metrics.
@@ -38,21 +40,17 @@ To monitor SonicWall firewalls with Netwatch, you'll need to configure Netwatch 
 - Add a new macro with the name `{SNMP_COMMUNITY}` and set its value to match the community string configured on your firewall.
 - Click **Update** to save changes.
 
-![Configure SNMP Monitoring](/images/snmp-macro.png)
+<ZoomableImage src="/images/snmp-macro.png" alt="Configure SNMP Monitoring" />
 
 ## Example: Monitoring a SonicWall Firewall
 - Use the *SNMP Sonicwall NSA* template.
 - This template automatically collects data on CPU usage, memory usage, interface status, and other metrics.
 - Create triggers to alert you if any of these metrics exceed a certain threshold.
 
-![Configure SNMP Monitoring](/images/snmp-latest.png)
+<ZoomableImage src="/images/snmp-latest.png" alt="Configure SNMP Monitoring" />
 
 ## Key Considerations
 - Choose the appropriate Netwatch template 
 - Ensure that SNMP is enabled and configured correctly on the firewall.
 
-
 ---
-
-
-

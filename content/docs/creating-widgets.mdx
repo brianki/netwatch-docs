@@ -3,6 +3,8 @@ title: Creating Widgets in Netwatch
 description: A guide on how to create and configure widgets in Netwatch dashboards.
 ---
 
+import ZoomableImage from '@/components/ZoomableImage';
+
 ## Overview
 Widgets in Netwatch allow users to visualize monitoring data effectively within dashboards. Different types of widgets can be used for various metrics.
 
@@ -12,20 +14,20 @@ Widgets in Netwatch allow users to visualize monitoring data effectively within 
 - Navigate to **Monitoring** > **Dashboards**.
 - Select an existing dashboard or create a new one.
 
-![Step 1: Access an Existing Dashboard](/images/access-dashboard.png)
+<ZoomableImage src="/images/access-dashboard.png" alt="Step 1: Access an Existing Dashboard" />
 
 ### 2. **Add a New Widget**
 - Click on **Add Widget**.
 - Choose the type of widget to add (e.g., Graph, Problems, Map, Clock).
 
-![Step 2: Add a New Widget](/images/add-widget.png)
+<ZoomableImage src="/images/add-widget.png" alt="Step 2: Add a New Widget" />
 
 ### 3. **Configure Widget Settings**
 - **Title:** Provide a descriptive name for the widget.
 - **Data Source:** Select the relevant data (e.g., a specific host or item).
 - **Visualization Options:** Customize colors, thresholds, and display modes.
 
-![Step 3: Configure Widget Settings](/images/configure-widget.png)
+<ZoomableImage src="/images/configure-widget.png" alt="Step 3: Configure Widget Settings" />
 
 ### **Example: Adding a CPU Usage Graph Widget**
 1. Click on **Add Widget**.
@@ -34,12 +36,12 @@ Widgets in Netwatch allow users to visualize monitoring data effectively within 
 4. Adjust settings such as the refresh interval and display style.
 5. Click **Apply** to Apply the widget.
 
-![Example: Adding a CPU Usage Graph Widget](/images/cpu-graph-widget.png)
+<ZoomableImage src="/images/cpu-graph-widget.png" alt="Example: Adding a CPU Usage Graph Widget" />
 
 ### 4. **Save the Widget**
 - Click **Apply** to apply the changes.
 
-![Step 4: Save the Dashboard](/images/save-dash.png)
+<ZoomableImage src="/images/save-dash.png" alt="Step 4: Save the Dashboard" />
 
 ## Example Widgets
 - **Graph Widget:** Displays time-series data for a selected metric.
@@ -51,8 +53,6 @@ Widgets in Netwatch allow users to visualize monitoring data effectively within 
 - Use widgets that provide meaningful insights into system performance.
 - Avoid cluttering dashboards with too many widgets.
 
-
 ---
 
 Widgets enhance Netwatch dashboards by providing clear, interactive monitoring insights.
-

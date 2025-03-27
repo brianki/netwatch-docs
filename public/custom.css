@@ -48,3 +48,62 @@ svg[data-next-mark-loading="false"] {
 svg circle {
     fill: #cac7c5 !important; /* Dark Blue */
 }
+/* Add to public/custom.css or your styles directory */
+
+/* Add to public/custom.css or your styles directory */
+
+.img-zoom-container {
+    transition: transform 0.2s ease-in-out;
+    cursor: zoom-in;
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  
+  .img-zoom-container:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Override react-medium-image-zoom styles for better integration */
+  [data-rmiz-modal-overlay="visible"] {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+  
+  [data-rmiz-modal-img] {
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 1500px !important;
+    max-height: 90vh !important;
+  }
+  
+  [data-rmiz-btn-open], 
+  [data-rmiz-btn-close] {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  [data-rmiz-btn-open]:hover, 
+  [data-rmiz-btn-close]:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Ensure the zoom container is full-width */
+  [data-rmiz] {
+    width: 100%;
+    display: block;
+  }
+  
+  /* Make sure zoomed image is large enough on large screens */
+  @media (min-width: 1200px) {
+    [data-rmiz-modal-img] {
+      min-width: 80vw;
+      min-height: 80vh;
+      object-fit: contain;
+    }
+  }
