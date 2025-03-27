@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from 'react';
 import Image from 'next/image';
@@ -30,19 +30,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({
   const useUnoptimized = ['png', 'svg'].includes(fileExtension || '');
 
   return (
-    <Zoom 
-      zoomMargin={40}
-      wrapStyle={{ 
-        width: '100%', 
-        maxWidth: '100%',
-        display: 'block'
-      }}
-      zoomImg={{
-        src: src,
-        alt: alt,
-        style: { maxWidth: '1800px', maxHeight: '90vh' }
-      }}
-    >
+    <Zoom zoomMargin={40}>
       <div className={`relative img-zoom-container ${className}`} style={{ width: '100%', height: 'auto' }}>
         <Image
           src={src}
