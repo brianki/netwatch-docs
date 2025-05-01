@@ -1,0 +1,76 @@
+---
+title: Get Started with Citrix Cloud API Access
+description: Creating a service principal, generate bearer tokens, and authenticate with Citrix Cloud APIs.
+---
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+# Get Started with Citrix Cloud APIs
+
+Citrix Cloud services streamline the delivery and management of Citrix technologies, allowing you to extend existing on-premises deployments or fully transition to the cloud.
+
+---
+
+## Step 1: Create a Service Principal
+
+1. Log in to [Citrix Cloud](https://citrix.cloud.com).
+2. Click the **Menu** in the top-left corner.
+3. Navigate to **Identity and Access Management > API Access > Service principals**.
+4. Click **Create service principal** and follow the prompts.
+
+> If you don't see this option, ensure you have **Full Access** admin rights.
+
+<ZoomableImage src="/images/createp.png" alt="Create Service Principal" />
+
+<ZoomableImage src="/images/createp2.png" alt="Create Service Principal" />
+
+- Save the **Client ID** and **Secret** immediately — they will not be shown again.
+
+---
+
+## Step 2: Generate a Bearer Token
+
+Using the clientId and secret from the previous step, obtain a bearer token.
+
+**Copy the Customer ID here**:
+
+<ZoomableImage src="/images/customerid.png" alt="Create Service Principal" />
+
+**Open CMD and make the Request**:
+```http
+POST https://api.cloud.com/cctrustoauth2/{customerid}/tokens/clients
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}
+```
+
+<ZoomableImage src="/images/cmd.png" alt="Create Service Principal" />
+
+**Response**:
+```json
+{
+  "token_type": "bearer",
+  "access_token": "ey1..",
+  "expires_in": "3600"
+}
+```
+
+---
+
+## Step 3: Connect Netwatch to Citrix Cloud Using the API
+
+Now that you have the **Access Token**, **Customer ID**, and **Secret**, you can connect Netwatch to Citrix Cloud to monitor key metrics.
+
+Use the token from Step 2 to authenticate requests:
+
+```http
+Authorization: CwsAuth Bearer={access_token}
+```
+
+
+
+---
+
+
+

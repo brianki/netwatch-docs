@@ -1,0 +1,85 @@
+---
+title: Adding Administrator to Citrix Cloud
+description: Granting administrator access to Citrix Cloud.
+---
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+# Add Administrator to Citrix Cloud
+
+This guide explains how to add an administrator to your Citrix Cloud environment. Once added, the admin will be able to set up and manage API access for integrations etc.
+
+
+## Step 1: Log into Citrix Cloud
+
+1. Navigate to [https://citrix.cloud.com](https://citrix.cloud.com)
+2. Sign in using your administrator account.
+
+<ZoomableImage src="/images/citrix.png" alt="Citrix Cloud Login" />
+
+---
+
+## Step 2: Open Identity and Access Management
+
+1. From the left-hand menu, select **Identity and Access Management**.
+2. Click the **Administrators** tab.
+
+<ZoomableImage src="/images/citrix2.png" alt="Identity and Access Management" />
+
+---
+
+## Step 3: Add Administrator or Group
+
+1. Click **Add administrator/group**.
+2. Select your **identity provider**:
+   - **Citrix Identity** – enter user’s email address.
+   - **Azure AD / SAML / Google** – search and select from directory.
+3. Click **Next**.
+
+<ZoomableImage src="/images/citrix3.png" alt="Add Administrator Page" />
+
+---
+
+## Step 4: Set Permissions
+
+1. Choose one of the following access levels:
+   - **Full Access** – grants full control, including API setup.
+   - **Custom Access** – restricts to specific services.
+2. Review and confirm the details.
+3. Click **Send Invitation**.
+
+<ZoomableImage src="/images/citrix4.png" alt="Set Admin Permissions" />
+
+---
+
+## Step 5: Administrator Accepts Invitation
+
+1. The new administrator receives an email from `cloud@citrix.com`.
+2. They must click **Sign In** within **5 days** to accept.
+3. During login, they will be prompted to **set up multifactor authentication**.
+
+> If the invite link expires, delete the administrator and repeat the process.
+
+<ZoomableImage src="/images/citrix5.png" alt="Citrix Invite Email Example" />
+
+---
+
+## After Setup: API Access
+
+Once the administrator is added and logged in:
+
+- They can configure **API Clients** under **API Access**.
+- API Tokens are protected by MFA.
+- Only admins with sufficient privileges can generate or manage API credentials.
+
+---
+
+## Notes
+
+- Each administrator account can manage up to **100 Citrix Cloud customers**.
+- For over 100 accounts, use a separate admin email.
+
+---
+
+
+
