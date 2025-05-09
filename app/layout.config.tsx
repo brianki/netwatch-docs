@@ -19,7 +19,7 @@ export const baseOptions: BaseLayoutProps = {
   },
   links: [
     {
-      text: 'Netwatch Documentation',
+      text: ' ',
       url: '/docs',
       active: 'nested-url',
     },

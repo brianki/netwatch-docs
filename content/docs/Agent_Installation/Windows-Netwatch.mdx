@@ -1,0 +1,78 @@
+---
+title: Adding Windows Systems to Netwatch
+description: Guide to install Netwatch agents on Windows systems using provided executables.
+---
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+# Adding Windows Systems to Netwatch
+
+This guide describes how to add Windows systems to Netwatch using pre-configured PowerShell-based executables.
+
+There are two deployment options
+
+- **Per-Host Executable** – For installing on individual systems.
+- **Domain Controller (DC) Executable** – For centralized agent deployment across multiple systems.
+
+---
+
+## Per-Host Executable
+
+This method is used to install Netwatch on a single system.
+
+### Steps
+
+1. Get the executable from the link (To be shared).
+
+         ### netwatch_installer_xxxx_host.exe
+
+2. Run the file as **Administrator** on the target host
+- Right-click → **Run as administrator**
+
+
+<ZoomableImage src="/images/admin.png" alt="Per-Host Executable" />
+
+
+- A command window will appear showing the progress
+
+<ZoomableImage src="/images/windowcmd.png" alt="Command Line Output" />
+
+3. Once complete, the system will appear in Netwatch under its respective host group.
+
+<ZoomableImage src="/images/host-groups.png" alt="Host Group in Netwatch" />
+
+
+---
+
+## Domain Controller Executable
+
+Used for bulk deployment across a domain.
+
+### Steps
+
+1. Get the correct executable from the link.
+
+      ### netwatch_installer_xxxx_DC.exe
+
+
+
+2. Run the file as **Administrator** on the Domain Controller:
+- This will silently install the agent on all domain-joined systems.
+
+<ZoomableImage src="/images/admin.png" alt="Domain Controller Executable" />
+
+
+3. The added systems will automatically appear in Netwatch.
+
+---
+
+## Key Notes
+
+- These installers are safe to run and **do not trigger reboots**.
+- They use PowerShell internally but are wrapped for ease of use.
+- **No system configuration is altered**, apart from installing the Netwatch agent.
+- Executables are customer-specific – ensure you are using the correct one for the environment.
+
+---
+
+For assistance or custom builds, please contact the Netwatch support team.
