@@ -1,0 +1,86 @@
+---
+title: Google Workspace API Credential for Netwatch Monitoring
+description: Step-by-step guide on generating and configuring Google Workspace API credentials for Netwatch monitoring.
+---
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+## Required Roles
+To perform the following steps, you must have one of the following roles:
+- Google Workspace Super Admin
+- Cloud Project Owner
+- Developer with access to the Google Cloud Console
+
+## Steps to Generate API Credentials
+
+### 1. **Access the Google Cloud Console**
+- Navigate to [https://console.cloud.google.com](https://console.cloud.google.com).
+- Sign in using a Google account with the necessary permissions.
+
+### 2. **Create a New Project**
+- In the top navigation bar, click **Select a project**.
+- Click **New Project**, name it **Netwatch**, and click **Create**.
+
+<ZoomableImage src="/images/google-cloud-console.png" alt="Step 1: Access Google Cloud Console" />
+
+<ZoomableImage src="/images/google-create-project.png" alt="Step 2: Create a New Project" />
+
+### 3. **Configure OAuth Consent Screen**
+- From the left navigation pane, select **APIs & Services > OAuth consent screen**.
+- Choose **User Type** (select *Internal* for organizational use).
+- Click **Create**.
+
+<ZoomableImage src="/images/google-oauth-consent.png" alt="Step 3: Configure OAuth Consent Screen" />
+
+### 4. **Set Consent Screen Details**
+- Enter the following:
+  - **App Name:** Netwatch
+  - **User Support Email:** Your admin or support email
+  - **Authorized Domain:** yourdomain.com
+  - **Developer Contact Information:** support@yourdomain.com
+- Click **Save and Continue**.
+
+<ZoomableImage src="/images/google-consent-details.png" alt="Step 4: Set Consent Screen Details" />
+
+### 5. **Complete Remaining Steps**
+- Follow through the remaining consent setup screens and click **Back to Dashboard** once complete.
+
+<ZoomableImage src="/images/google-consent-complete.png" alt="Step 5: Complete Consent Setup" />
+
+### 6. **Enable Required APIs**
+- Go to **APIs & Services > Library**.
+- Enable APIs like:
+  - **Admin SDK API**
+  - **Gmail API**
+  - **Google Drive API**
+  - **Reports API**
+- These allow Netwatch to monitor Google Workspace performance and usage.
+
+
+
+### 7. **Create OAuth Client ID**
+- Go to **APIs & Services > Credentials**.
+- Click **Create Credentials > OAuth Client ID**.
+
+<ZoomableImage src="/images/google-enable-apis.png" alt="Step 6: Enable Required APIs" />
+
+
+
+### 8. **Select Application Type**
+- Under **Application Type**, choose **Web Application**.
+- Name it **Netwatch or Web clien 1**.
+
+<ZoomableImage src="/images/google-create-credentials.png" alt="Step 7: Create OAuth Client ID" />
+
+
+
+### 9. **Add Authorized URIs**
+- Under **Authorized JavaScript Origins**, add your Netwatch domain or instance URL as shown below (https://mysite.com).
+
+<ZoomableImage src="/images/google-urls.png" alt="Step 8: Select Application Type" />
+
+
+
+### 9. **Copy your Client ID and Client Secret.**
+
+<ZoomableImage src="/images/google-copy.png" alt="Step 8: Select Application Type" />
