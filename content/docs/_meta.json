@@ -1,0 +1,9 @@
+{
+  "about": { "title": "About" },
+  "agent-installation": { "title": "Agent Installation" },
+  "api-configurations": { "title": "API Configurations" },
+  "citrix": { "title": "Citrix" },
+  "netwatch-configurations": { "title": "Netwatch Configurations" },
+  "netwatch-diagrams": { "title": "Netwatch Diagrams" },
+  "snmp-configurations": { "title": "SNMP Configurations" }
+}
