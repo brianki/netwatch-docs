@@ -1,0 +1,111 @@
+---
+title: Configuring Nutanix Monitoring in Netwatch
+---
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+## Overview
+Netwatch supports comprehensive monitoring of Nutanix Hyperconverged Infrastructure (HCI) through REST API integration with Nutanix Prism Element or Prism Central. This integration enables visibility into cluster performance, storage capacity, host resource utilization, container usage, and infrastructure alerts, allowing proactive monitoring and faster incident response.
+
+## What Netwatch Monitors in Nutanix
+Netwatch can collect and monitor the following Nutanix metrics:
+
+- **Storage Metrics**
+  - Total storage capacity
+  - Used and available space
+  - Storage utilization percentages
+- **Performance Metrics**
+  - Cluster IOPS
+  - Read/write operations
+  - IO latency
+- **Host Resources**
+  - CPU usage per host
+  - Memory utilization across hypervisor hosts
+- **Container Storage**
+  - Container capacity
+  - Used and free space
+  - Utilization trends
+- **Alert Management**
+  - Critical, warning, and informational alerts from Nutanix Prism
+- **Discovery**
+  - Automatic discovery of clusters, hosts, and storage containers
+
+## Prerequisites
+Before configuring Nutanix monitoring in Netwatch, ensure the following requirements are met:
+
+- Nutanix Prism Element or Prism Central with API access enabled
+- API credentials (username and password) with at least read-only permissions
+- Network connectivity from the Netwatch server to the Nutanix Prism IP address (default port **9440**)
+- An active and accessible Nutanix cluster
+
+## 1. Configure Nutanix API Access
+1. Log in to the **Nutanix Prism Element** interface.
+2. Create a dedicated monitoring user or use an existing account with read-only API permissions.
+3. Note the **Prism Element IP address** and API port (typically **9440**).
+4. Verify API accessibility using the following endpoint:
+
+
+## 2. Add Nutanix Host in Netwatch
+1. Navigate to **Configuration** → **Hosts**.
+2. Click **Create Host**.
+3. Enter the following details:
+- **Host name**: A descriptive name for the Nutanix cluster (e.g., *Nutanix-Production*)
+- **Host group**: Select an appropriate group (e.g., *Hyperconverged Infrastructure*)
+- **Agent interface**: Enter the Nutanix Prism Element IP address
+4. Go to the **Macros** tab and add the following macros:
+- `{$NUTANIX.PRISM.ELEMENT.IP}`: Prism Element IP address (e.g., `172.XXX.XXX.XXX`)
+- `{$NUTANIX.USER}`: API username (e.g., `netwatch`)
+- `{$NUTANIX.PASSWORD}`: API password (use a **Secret Text** macro for security)
+5. Click **Update** to save the host configuration.
+
+<ZoomableImage src="/images/nutanix-host1.png" alt="Nutanix Host Macros Configuration" />
+
+## 3. Link Nutanix Template
+1. While still on the host configuration page, navigate to the **Templates** tab.
+2. Click **Select** and search for the Nutanix monitoring template (e.g., *Nutanix Prism Element by HTTP_1*).
+3. Link the template to the host.
+4. Click **Update** to apply the changes.
+
+<ZoomableImage src="/images/nutanix-host.png" alt="Nutanix Template Macros" />
+
+## 4. Configure Discovery Rules (Optional)
+The Nutanix template includes built-in discovery rules to automatically detect infrastructure components, including:
+
+- **Nutanix Clusters**
+- Filtered using `{$NUTANIX.CLUSTER.DISCOVERY.NAME.MATCHES}`
+- Excluded using `{$NUTANIX.CLUSTER.DISCOVERY.NAME.NOT_MATCHES}`
+- **Nutanix Hosts**
+- Host discovery based on configurable name filters
+- **Storage Containers**
+- Automatic discovery of all available storage containers
+
+These filters can be customized within the template macros to include or exclude specific clusters, hosts, or containers as required.
+
+## 5. Verify Data Collection
+After completing the configuration, Netwatch will begin collecting Nutanix metrics within a few minutes.
+
+1. Navigate to **Monitoring** → **Latest Data**.
+2. Select the Nutanix host.
+3. Confirm that the following metrics are populating:
+- Storage capacity and utilization
+- Cluster IOPS and IO latency
+- Host CPU and memory usage
+- Storage container capacity and usage
+
+## 6. View Nutanix Dashboards
+Netwatch provides pre-built dashboards for Nutanix environments to visualize infrastructure health and performance.
+
+<ZoomableImage src="/images/nutanix-dashboard-2.png" alt="Nutanix Dashboard Overview" />
+
+The dashboard includes:
+- **Storage Overview**: Total, used, and available capacity
+- **Performance Metrics**: Cluster IOPS and IO latency trends
+- **Host Resources**: CPU and memory utilization across hypervisor hosts
+- **Container Details**: Storage container usage and allocation
+
+<ZoomableImage src="/images/nutanix-dashboard-1.png" alt="Nutanix Dashboard with Alerts" />
+
+Additional dashboard features:
+- **Active Alerts**: Real-time view of critical, warning, and informational alerts
+- **Alert Trends**: Historical alert patterns over the last 24 hours
+- **Security Monitoring**: SSH access and password expiry alerts
