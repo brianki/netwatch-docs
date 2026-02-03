@@ -1,0 +1,83 @@
+---
+
+title: Netwatch Deployment Models and their Minimum System Requirements
+----------------------------------------------------------------------------------------------------------------------
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+Netwatch supports flexible deployment models to fit different customer environments, security requirements, and scale. The deployment model is selected based on environment size, network segmentation, and whether dedicated hardware is required.
+
+---
+
+## Watchnode Deployment Model
+
+The **Watchnode** is deployed **within the customer environment**. It is responsible for collecting monitoring data locally and securely forwarding it to the Netwatch platform.
+
+This model is recommended for:
+
+* Environments with restricted outbound access
+* On-premises or hybrid networks
+* Customers requiring local data collection and control
+
+### Key Characteristics
+
+* Installed on a customer-managed system (physical or virtual)
+* Communicates outbound only to Netwatch
+* No inbound firewall rules required
+* Supports monitoring of servers, network devices, and applications
+
+---
+
+## Watchnode – Minimum System Requirements
+
+| Environment Size        | CPU    | Memory     | Storage     | Operating System | Network                                 |
+| ----------------------- | ------ | ---------- | ----------- | ---------------- | --------------------------------------- |
+| Small (≤100 assets)     | 2 vCPU | 4 GB RAM   | 30 GB SSD   | Ubuntu (64-bit)   | Outbound connectivity to Netwatch       |
+| Medium (100–500 assets) | 4 vCPU | 8 GB RAM   | 50 GB SSD  | Ubuntu (64-bit)   | Outbound connectivity to Netwatch             |
+| Large (500+ assets)     | 8 vCPU | 16 GB RAM+ | 100 GB SSD+ | Ubuntu (64-bit)   | Outbound connectivity to Netwatch  |
+
+---
+
+## Micro Node Deployment Model
+
+The **Micro Node** is a compact deployment option used **when customer-provided infrastructure is not available or not preferred**.
+
+It is typically delivered as A small dedicated hardware appliance
+
+### When to Use a Micro Node
+
+* No suitable server or VM available on-site
+* Remote or edge locations
+
+
+### Key Characteristics
+
+* Dedicated hardware
+* Pre-configured and ready to deploy
+* Minimal customer maintenance
+* Secure outbound communication to Netwatch
+
+### Micro Node – Physical Overview
+
+<ZoomableImage src="/images/micro3.png" alt="Micro Node – Front View" />
+
+<ZoomableImage src="/images/micro4.png" alt="Micro Node – Rear View" />
+
+---
+
+## Micro Node – Minimum System Requirements
+
+| Component        | Minimum Specification                  |
+| ---------------- | -------------------------------------- |
+| CPU              | 2 vCPU                                 |
+| Memory           | 4 GB RAM                               |
+| Storage          | 64 GB SSD                              |
+| Operating System | Embedded Linux - Ubuntu 64-bit          |
+| Network          | Ethernet with outbound internet access |
+
+---
+
+
+
+
+

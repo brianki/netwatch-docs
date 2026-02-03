@@ -1,0 +1,90 @@
+---
+
+title: Disabling SentinelOne for Netwatch Agent Installation
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+import ZoomableImage from '@/components/ZoomableImage';
+
+This guide explains how to allow the Netwatch agent to be installed on Windows systems where **SentinelOne Endpoint Protection** is active.
+
+SentinelOne can block installers by default if they are not explicitly trusted. To proceed safely, you should **create an exclusion (recommended)** or **temporarily disable protection** during installation.
+
+There are two supported approaches:
+
+* **Recommended:** Add a SentinelOne exclusion (allow rule)
+* **Temporary:** Disable SentinelOne protection during installation
+
+---
+
+## Option 1: Allow Netwatch Agent Using SentinelOne Exclusions (Recommended)
+
+This method keeps SentinelOne active while allowing the Netwatch installer to run.
+
+### Steps
+
+1. Log in to the **SentinelOne Management Console** using an administrator account.
+
+<ZoomableImage src="/images/Sentinel.png" alt="SentinelOne Login Screen" />
+
+2. From the left-hand menu, navigate to:
+
+   **Sentinels → Exclusions**
+
+3. Click **New Exclusion** (or **Create Exclusion**).
+
+<ZoomableImage src="/images/Sentinetex.png" alt="Create New Exclusion" />
+
+4. Configure the exclusion:
+
+   * **Exclusion Type:** File Path or Process
+   * **Path:** Location of the Netwatch installer (e.g. `C:\Temp\netwatch_installer_xxxx_host.exe`)
+   * **Scope:** Select the relevant site, group, or endpoints
+   * **Description:** Allow Netwatch Agent Installation
+
+<ZoomableImage src="/images/Sentinelpath.png" alt="Exclusion Configuration" />
+
+5. Save the exclusion and allow time for the policy to sync to endpoints.
+
+6. Run the Netwatch installer as **Administrator**.
+
+Once completed, SentinelOne will continue protecting the system while allowing the Netwatch agent to operate normally.
+
+---
+
+## Option 2: Temporarily Disable SentinelOne Protection (If Exclusions Are Not Possible)
+
+This method should only be used when exclusions cannot be created in advance and must be performed by an administrator.
+
+### Steps
+
+1. Obtain the **SentinelOne Passphrase** from the SentinelOne management console.
+
+2. On the target Windows system, open **Command Prompt** as **Administrator**.
+
+3. Temporarily disable SentinelOne protection using the following commands:
+
+```
+sentinelctl unprotect -k <PASS_PHRASE>
+sentinelctl unload -m -a
+```
+
+4. Run the Netwatch installer as **Administrator**.
+
+5. After installation is complete, re-enable SentinelOne protection:
+
+```
+sentinelctl load -m -a
+sentinelctl protect
+```
+
+
+---
+After installation...
+
+* Confirm the Netwatch agent service is running on the host
+* Verify the system appears in the Netwatch console under the correct host group
+* Confirm SentinelOne protection status is **Enabled**
+
+---
+
+
