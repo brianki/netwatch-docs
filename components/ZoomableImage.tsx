@@ -22,33 +22,25 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({
   className = '',
   quality = 100,
 }) => {
-  // Extract the file extension from the src
   const fileExtension = src.split('.').pop()?.toLowerCase();
-  
-  // Determine if we should use unoptimized option
-  // PNG and SVG should be unoptimized to maintain quality
+
   const useUnoptimized = ['png', 'svg'].includes(fileExtension || '');
 
   return (
-    <Zoom zoomMargin={40}>
-      <div className={`relative img-zoom-container ${className}`} style={{ width: '100%', height: 'auto' }}>
+    <div className={`img-wrapper ${className}`}>
+      <Zoom>
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
-          style={{ 
-            objectFit: 'contain',
-            width: '100%', 
-            height: 'auto',
-          }}
-          className="rounded-md"
           quality={quality}
           unoptimized={useUnoptimized}
-          priority={true}
+          priority
+          className="zoomable-image"
         />
-      </div>
-    </Zoom>
+      </Zoom>
+    </div>
   );
 };
 
