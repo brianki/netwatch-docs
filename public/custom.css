@@ -122,8 +122,10 @@ button[data-search-full] kbd {
     height: 40px;
 }
 
-[data-rmiz-btn-open:hover],
-[data-rmiz-btn-close:hover] {
+/* CORRECT HOVER SYNTAX */
+
+[data-rmiz-btn-open]:hover,
+[data-rmiz-btn-close]:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
